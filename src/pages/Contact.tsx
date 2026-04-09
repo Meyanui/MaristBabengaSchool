@@ -84,13 +84,13 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent className="space-y-2">
                   <a href="tel:+237651703107" className="block text-lg hover:text-accent transition-colors">
-                    +237 6 51 70 31 07
+                    +237 677 847 634
                   </a>
                   <a href="tel:+2376777085480" className="block text-lg hover:text-accent transition-colors">
-                    +237 677 708 5480
+                    +237 677 085 480
                   </a>
                   <a href="tel:+237671730604" className="block text-lg hover:text-accent transition-colors">
-                    +237 6 71 730 604
+                    +237 677 043 896
                   </a>
                 </CardContent>
               </Card>
@@ -107,7 +107,7 @@ const Contact = () => {
                     href="mailto:principalmaristbabenga@gmail.com" 
                     className="text-lg hover:text-accent transition-colors"
                   >
-                    principalmaristbabenga@gmail.com
+                    maristbcc@gmail.com
                   </a>
                 </CardContent>
               </Card>
@@ -136,7 +136,7 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-lg mb-2">
-                    <strong>June - August 2025</strong>
+                    <strong>June - August 2026</strong>
                   </p>
                   <p className="text-muted-foreground">
                     Wednesdays & Saturdays<br />
@@ -144,7 +144,7 @@ const Contact = () => {
                   </p>
                   <p className="mt-4 font-semibold text-secondary">
                     Special Interview Date:<br />
-                    Saturday, July 5, 2025<br />
+                    Saturday, July 5, 2026<br />
                     8:30 AM - 12:00 Noon
                   </p>
                 </CardContent>
@@ -159,7 +159,7 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <a 
-                    href="https://facebook.com/maristbabenga" 
+                    href="https://www.facebook.com/maristdouala/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-lg hover:text-accent transition-colors inline-flex items-center gap-2"
@@ -199,7 +199,7 @@ const Contact = () => {
                         id="email" 
                         name="email"
                         type="email" 
-                        placeholder="john@example.com" 
+                        placeholder="adam@example.com" 
                         required 
                         maxLength={255}
                       />

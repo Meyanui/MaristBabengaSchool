@@ -164,7 +164,7 @@ const CampusLife = () => {
                     <div className="text-muted-foreground">Classes begin</div>
                   </div>
                   <div className="flex gap-4 pb-3 border-b">
-                    <div className="font-semibold w-32 flex-shrink-0">10:30 AM</div>
+                    <div className="font-semibold w-32 flex-shrink-0">10:40 AM</div>
                     <div className="text-muted-foreground">Morning break</div>
                   </div>
                   <div className="flex gap-4 pb-3 border-b">
@@ -173,7 +173,7 @@ const CampusLife = () => {
                   </div>
                   <div className="flex gap-4 pb-3 border-b">
                     <div className="font-semibold w-32 flex-shrink-0">2:00 PM</div>
-                    <div className="text-muted-foreground">Afternoon classes</div>
+                    <div className="text-muted-foreground">End of classes</div>
                   </div>
                   <div className="flex gap-4 pb-3 border-b">
                     <div className="font-semibold w-32 flex-shrink-0">4:30 PM</div>
@@ -181,18 +181,18 @@ const CampusLife = () => {
                   </div>
                   <div className="flex gap-4 pb-3 border-b">
                     <div className="font-semibold w-32 flex-shrink-0">6:00 PM</div>
-                    <div className="text-muted-foreground">Dinner</div>
+                    <div className="text-muted-foreground">Evening Prayer</div>
                   </div>
                   <div className="flex gap-4 pb-3 border-b">
                     <div className="font-semibold w-32 flex-shrink-0">7:00 PM</div>
-                    <div className="text-muted-foreground">Study hall & homework time</div>
+                    <div className="text-muted-foreground">Supper & Study Time</div>
                   </div>
                   <div className="flex gap-4 pb-3 border-b">
-                    <div className="font-semibold w-32 flex-shrink-0">9:00 PM</div>
-                    <div className="text-muted-foreground">Evening prayer & personal time</div>
+                    <div className="font-semibold w-32 flex-shrink-0">9:30 PM</div>
+                    <div className="text-muted-foreground">End of Preps</div>
                   </div>
                   <div className="flex gap-4">
-                    <div className="font-semibold w-32 flex-shrink-0">10:00 PM</div>
+                    <div className="font-semibold w-32 flex-shrink-0">9:45 PM</div>
                     <div className="text-muted-foreground">Lights out</div>
                   </div>
                 </div>

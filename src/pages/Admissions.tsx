@@ -49,7 +49,7 @@ const Admissions = () => {
                     <CheckCircle2 className="text-accent flex-shrink-0 mt-1" size={20} />
                     <div>
                       <p className="font-semibold">Available Classes</p>
-                      <p className="text-muted-foreground">Class 6, Form 1, Form 2, Form 3, Form 4, Form 5, Lower Sixth, Upper Sixth</p>
+                      <p className="text-muted-foreground">Form 1, Form 2, Form 3</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -122,7 +122,7 @@ const Admissions = () => {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-foreground flex items-center gap-2">
               <DollarSign className="text-accent" />
-              Fee Structure 2025/2026
+              Fee Structure 2026/2027
             </h2>
             
             <Card className="mb-6">
@@ -144,17 +144,17 @@ const Admissions = () => {
                       <tr className="border-b">
                         <td className="py-3 px-4 font-semibold">1st Instalment</td>
                         <td className="py-3 px-4">350,000 FCFA</td>
-                        <td className="py-3 px-4">July 20, 2025</td>
+                        <td className="py-3 px-4">July 20, 2026</td>
                       </tr>
                       <tr className="border-b">
                         <td className="py-3 px-4 font-semibold">2nd Instalment</td>
                         <td className="py-3 px-4">200,000 FCFA</td>
-                        <td className="py-3 px-4">December 10, 2025</td>
+                        <td className="py-3 px-4">December 10, 2026</td>
                       </tr>
                       <tr className="border-b">
                         <td className="py-3 px-4 font-semibold">3rd Instalment</td>
                         <td className="py-3 px-4">60,000 FCFA</td>
-                        <td className="py-3 px-4">February 1, 2026</td>
+                        <td className="py-3 px-4">February 1, 2027</td>
                       </tr>
                       <tr className="bg-muted font-bold">
                         <td className="py-3 px-4">TOTAL</td>
@@ -185,7 +185,7 @@ const Admissions = () => {
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="text-accent" size={18} />
-                        <span>All meals (breakfast, lunch, dinner)</span>
+                        <span>All meals (breakfast, lunch, Supper)</span>
                       </li>
                     </ul>
                   </div>
@@ -227,7 +227,7 @@ const Admissions = () => {
                     <Calendar className="text-accent flex-shrink-0 mt-1" size={20} />
                     <div className="flex-1">
                       <p className="font-semibold text-lg">Application Period</p>
-                      <p className="text-muted-foreground">June - August 2025</p>
+                      <p className="text-muted-foreground">June - August 2026</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 pb-4 border-b">
@@ -242,7 +242,7 @@ const Admissions = () => {
                     <Calendar className="text-secondary flex-shrink-0 mt-1" size={20} />
                     <div className="flex-1">
                       <p className="font-semibold text-lg">Special Interview Date</p>
-                      <p className="font-semibold text-secondary">Saturday, July 5th, 2025</p>
+                      <p className="font-semibold text-secondary">Saturday, July 5th, 2026</p>
                       <p className="text-sm text-muted-foreground">8:30 AM - 12:00 Noon</p>
                     </div>
                   </div>
@@ -250,7 +250,7 @@ const Admissions = () => {
                     <Calendar className="text-accent flex-shrink-0 mt-1" size={20} />
                     <div className="flex-1">
                       <p className="font-semibold text-lg">First Payment Deadline</p>
-                      <p className="text-muted-foreground">July 20, 2025</p>
+                      <p className="text-muted-foreground">July 20, 2026</p>
                       <p className="text-sm text-muted-foreground">350,000 FCFA</p>
                     </div>
                   </div>
