@@ -40,7 +40,7 @@ const Contact = () => {
       setTimeout(() => {
         toast({
           title: "Message Sent!",
-          description: "Thank you for contacting us. We'll respond within 24 hours.",
+          description: "Thank you for contacting us. Kindly Call +237677085479 if no Immediate Response.",
         });
         setIsSubmitting(false);
         (e.target as HTMLFormElement).reset();
