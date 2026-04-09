@@ -70,12 +70,12 @@ const Footer = () => {
               <div className="flex items-center space-x-2 text-sm">
                 <Mail size={16} className="flex-shrink-0" />
                 <a href="mailto:principalmaristbabenga@gmail.com" className="hover:text-secondary transition-colors">
-                  principalmaristbabenga@gmail.com
+                  maristbcc@gmail.com
                 </a>
               </div>
               <div className="flex items-center space-x-2 text-sm">
                 <Facebook size={16} className="flex-shrink-0" />
-                <a href="https://facebook.com/maristbabenga" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">
+                <a href="https://www.facebook.com/maristdouala/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">
                   Follow us on Facebook
                 </a>
               </div>

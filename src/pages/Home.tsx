@@ -136,7 +136,7 @@ const Home = () => {
             <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
               <Link to="/contact">
                 <Phone className="mr-2" size={20} />
-                Call: +237 677085479
+                Call: +237 677 085 479
               </Link>
             </Button>
           </div>
