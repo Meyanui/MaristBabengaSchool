@@ -3,15 +3,32 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { GraduationCap, Users, Globe, BookOpen, Calendar, Phone, Image as ImageIcon } from "lucide-react";
 import heroImage from "@/assets/hero-schoo.jpg";
-import schoolStudents from "@/assets/school-students.jpg";
+import schoolStudents from "@/assets/side.jpg";
 import computerLab from "@/assets/computer-lab.jpg";
 import boardingDorm from "@/assets/boarding-dorm.jpg";
 import chapel from "@/assets/chapel.jpg";
-import { useEffect, useRef } from "react";
+import sportsField from "@/assets/sports-field.jpg";
+import scienceLab from "@/assets/Lab.jpeg";
+import musicClass from "@/assets/Music1.jpeg";
+import backGround from "@/assets/background 2.jpg";
+import { useEffect, useRef, useState } from "react";
+
+// Hero images for slideshow with slow zoom effect
+const heroImages = [
+  { src: heroImage, alt: "School Building" },
+  { src: schoolStudents, alt: "Students" },
+  { src: computerLab, alt: "Computer Lab" },
+  { src: chapel, alt: "Chapel" },
+  { src: sportsField, alt: "Sports Field" },
+  { src: scienceLab, alt: "Science Lab" },
+  { src: musicClass, alt: "Music Class" },
+  { src: backGround, alt: "Background Image" }
+];
 
 const Home = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const fallbackRef = useRef<HTMLDivElement>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -52,33 +69,35 @@ const Home = () => {
     }
   }, []);
 
+  // Slow zoom slideshow effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 8000); // Change every 8 seconds for slow transition
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section with Slow Zoom Slideshow */}
       <section className="relative h-[600px] flex items-center justify-center text-center overflow-hidden">
-        {/* Video Background with Fallback */}
-        <video
-          ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          style={{ display: 'none' }}
-        >
-          <source src="/videos/hero-background.mp4" type="video/mp4" />
-          <source src="/videos/hero-background.webm" type="video/webm" />
-        </video>
+        {/* Background Images with Slow Zoom Effect */}
+        {heroImages.map((image, index) => (
+          <div
+            key={index}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${image.src})`,
+              opacity: currentSlide === index ? 1 : 0,
+              transition: 'opacity 2000ms ease-in-out, transform 8000ms ease-in-out',
+              transform: currentSlide === index ? 'scale(1.15)' : 'scale(1)',
+            }}
+          />
+        ))}
 
-        {/* Fallback Image */}
-        <div
-          ref={fallbackRef}
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        ></div>
-
-        {/* Optional overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/20" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/30" />
 
         <div className="relative z-10 container mx-auto px-4">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">

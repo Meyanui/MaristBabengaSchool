@@ -144,8 +144,8 @@ const Contact = () => {
                   </p>
                   <p className="mt-4 font-semibold text-secondary">
                     Special Interview Date:<br />
-                    Saturday, July 5, 2026<br />
-                    8:30 AM - 12:00 Noon
+                    Saturday, June 6, 2026<br />
+                    8:00 AM - 11:00 AM
                   </p>
                 </CardContent>
               </Card>
