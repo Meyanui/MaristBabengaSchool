@@ -6,6 +6,7 @@ import chapel from "@/assets/chapel.jpg";
 import sportsField from "@/assets/sports-field.jpg";
 import scienceLab from "@/assets/science-lab.jpg";
 import schoolStudents from "@/assets/f12Kids.jpg";
+import sportField1 from "@/assets/sport-field-1.jpg";
 
 const Gallery = () => {
   const galleryImages = [

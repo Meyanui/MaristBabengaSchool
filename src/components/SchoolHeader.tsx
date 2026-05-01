@@ -28,7 +28,7 @@ const SchoolHeader = () => {
               Excellence in Catholic Education  
             </p>
             <p className="text-primary-foreground/80 text-xs md:text-sm mt-2">
-              Motto: LEARN- LOVE - SERVE HUMANITY
+              Motto: LEARN - LOVE - SERVE HUMANITY
             </p>
           </div>
         </div>
