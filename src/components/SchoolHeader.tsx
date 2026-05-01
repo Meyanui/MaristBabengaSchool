@@ -23,12 +23,12 @@ const SchoolHeader = () => {
           </div>
 
           {/* School Description */}
-          <div className="text-center md:text-right max-w-2xl">
+          <div className="text-center md:text-right max-w-4xl">
             <p className="text-primary-foreground/95 text-sm md:text-base font-medium leading-relaxed">
-              Excellence in Catholic Education • Learn, Love, Serve
+              Excellence in Catholic Education  
             </p>
             <p className="text-primary-foreground/80 text-xs md:text-sm mt-2">
-              Babenga - Bonaberi, Douala, Cameroon
+              Motto: LEARN- LOVE - SERVE HUMANITY
             </p>
           </div>
         </div>
