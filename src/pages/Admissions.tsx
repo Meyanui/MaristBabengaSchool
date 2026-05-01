@@ -1,9 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, Calendar, DollarSign, CheckCircle2, AlertCircle } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Admissions = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   return (
     <div className="min-h-screen">
       {/* Hero Header */}
@@ -11,7 +17,7 @@ const Admissions = () => {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-black mb-4 animate-bounce">Admissions 2026/2027</h1>
           <p className="text-xl font-bold opacity-95 max-w-2xl mx-auto">
-            Join our community of learners. Applications open now for all classes.
+            Join our community of learners. Applications open now for FORM ONE Only.
           </p>
         </div>
       </section>
@@ -98,8 +104,8 @@ const Admissions = () => {
                   <li className="flex items-start gap-3 animate-fade-in-delay-3">
                     <CheckCircle2 className="text-accent flex-shrink-0 mt-1 animate-bounce" size={20} />
                     <div>
-                      <span className="font-black">Baptism Card</span>
-                      <p className="text-sm text-muted-foreground font-semibold">Required for Catholic students only</p>
+                      <span className="font-black">Baptismal Card</span>
+                      <p className="text-sm text-muted-foreground font-semibold">Required for Catholics only</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3 animate-fade-in-delay-4">
@@ -144,12 +150,12 @@ const Admissions = () => {
                       <tr className="border-b animate-fade-in-delay-1">
                         <td className="py-3 px-4 font-black">1st Instalment</td>
                         <td className="py-3 px-4 font-bold">350,000 FCFA</td>
-                        <td className="py-3 px-4 font-bold">July 20, 2026</td>
+                        <td className="py-3 px-4 font-bold">June 20, 2026</td>
                       </tr>
                       <tr className="border-b animate-fade-in-delay-2">
                         <td className="py-3 px-4 font-black">2nd Instalment</td>
                         <td className="py-3 px-4 font-bold">200,000 FCFA</td>
-                        <td className="py-3 px-4 font-bold">December 10, 2026</td>
+                        <td className="py-3 px-4 font-bold">December 07, 2026</td>
                       </tr>
                       <tr className="border-b animate-fade-in-delay-3">
                         <td className="py-3 px-4 font-black">3rd Instalment</td>
@@ -243,14 +249,14 @@ const Admissions = () => {
                     <div className="flex-1">
                       <p className="font-black text-lg">Special Interview Date</p>
                       <p className="font-black text-secondary">Saturday, June 6th, 2026</p>
-                      <p className="text-sm text-muted-foreground font-semibold">8:30 AM - 12:00 Noon</p>
+                      <p className="text-sm text-muted-foreground font-semibold">8:00 AM - 11:00 AM</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 animate-fade-in-delay-3">
                     <Calendar className="text-accent flex-shrink-0 mt-1 animate-bounce" size={20} />
                     <div className="flex-1">
                       <p className="font-black text-lg">First Payment Deadline</p>
-                      <p className="text-muted-foreground font-bold">July 20, 2026</p>
+                      <p className="text-muted-foreground font-bold">June 20, 2026</p>
                       <p className="text-sm text-muted-foreground font-semibold">350,000 FCFA</p>
                     </div>
                   </div>
@@ -269,8 +275,8 @@ const Admissions = () => {
             Take the first step toward joining the Marist family. Contact our admissions office today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" asChild className="animate-pulse hover:scale-105 transition-transform duration-300">
-              <Link to="/contact" className="font-black">Contact Admissions</Link>
+            <Button size="lg" variant="secondary" className="animate-pulse hover:scale-105 transition-transform duration-300" onClick={() => handleNavigation("/contact")}>
+              Contact Admissions
             </Button>
             <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary font-bold animate-pulse hover:scale-105 transition-transform duration-300">
               Download Application Form

@@ -13,10 +13,10 @@ const SchoolHeader = () => {
               className="h-20 w-20 md:h-24 md:w-24 bg-background p-2 rounded-lg shadow-lg"
             />
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-primary-foreground">
-                <span className="text-secondary">MARIST</span> COLLEGE
+              <h1 className="text-2xl md:text-6xl font-bold text-primary-foreground">
+                <span className="text-secondary">MARIST</span>
               </h1>
-              <p className="text-primary-foreground/90 text-sm md:text-base font-medium mt-1">
+              <p className="text-primary-foreground/90 text-sm md:text-base font-medium mt-2">
                 Bilingual Comprehensive College
               </p>
             </div>

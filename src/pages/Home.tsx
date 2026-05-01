@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { GraduationCap, Users, Globe, BookOpen, Calendar, Phone, Image as ImageIcon } from "lucide-react";
@@ -26,9 +26,15 @@ const heroImages = [
 ];
 
 const Home = () => {
+  const navigate = useNavigate();
   const videoRef = useRef<HTMLVideoElement>(null);
   const fallbackRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const video = videoRef.current;
@@ -108,11 +114,11 @@ const Home = () => {
             Excellence in Catholic Education • Building Future Leaders • Boarding School
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" asChild className="shadow-lg">
-              <Link to="/admissions">Apply Now for 2026/2027</Link>
+            <Button size="lg" variant="secondary" className="shadow-lg" onClick={() => handleNavigation("/admissions")}>
+              Apply Now for 2026/2027
             </Button>
-            <Button size="lg" variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary backdrop-blur-sm shadow-lg" asChild>
-              <Link to="/contact">Contact Admissions</Link>
+            <Button size="lg" variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary backdrop-blur-sm shadow-lg" onClick={() => handleNavigation("/contact")}>
+              Contact Admissions
             </Button>
           </div>
         </div>
@@ -126,9 +132,9 @@ const Home = () => {
             <div className="flex-1 overflow-hidden">
               <div className="animate-marquee whitespace-nowrap">
                 <p className="font-black text-xl inline-block text-secondary-foreground">
-                  🎯 Special Interview Date: June 6th, 2026 • 8:30 AM - 12:00 Noon 🎯 &nbsp;&nbsp;&nbsp;&nbsp;
-                  🎯 Special Interview Date: June 6th, 2026 • 8:30 AM - 12:00 Noon 🎯 &nbsp;&nbsp;&nbsp;&nbsp;
-                  🎯 Special Interview Date: June 6th, 2026 • 8:30 AM - 12:00 Noon 🎯 &nbsp;&nbsp;&nbsp;&nbsp;
+                  🎯 Special Interview Date: June 6th, 2026 • 8:00 AM - 11:00 AM 🎯 &nbsp;&nbsp;&nbsp;&nbsp;
+                  🎯 Special Interview Date: June 6th, 2026 • 8:00 AM - 11:00 AM 🎯 &nbsp;&nbsp;&nbsp;&nbsp;
+                  🎯 Special Interview Date: June 6th, 2026 • 8:00 AM - 11:00 AM 🎯 &nbsp;&nbsp;&nbsp;&nbsp;
                 </p>
               </div>
             </div>
@@ -192,7 +198,7 @@ const Home = () => {
                 <GraduationCap className="w-12 h-12 mb-4 text-accent" />
                 <CardTitle>Modern Facilities</CardTitle>
                 <CardDescription>
-                  Computer labs, music rooms, chapel, and comprehensive boarding facilities
+                  Computer laboratory, Music room, and comprehensive boarding facilities
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -217,17 +223,15 @@ const Home = () => {
             Ready to Join Our Community?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-95">
-            Admissions open for Classes ONLY. Interview fee: 3,500 FCFA
+            Admissions open for Form ONE Only. Apply now to secure your child's place at MARIST for the 2026/2027 academic year.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" asChild>
-              <Link to="/admissions">View Requirements</Link>
+            <Button size="lg" variant="secondary" onClick={() => handleNavigation("/admissions")}>
+              View Requirements
             </Button>
-            <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-              <Link to="/contact">
-                <Phone className="mr-2" size={20} />
-                Call: +237 677 085 479
-              </Link>
+            <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" onClick={() => handleNavigation("/contact")}>
+              <Phone className="mr-2" size={20} />
+              Call: (237) 677 085 479
             </Button>
           </div>
         </div>
@@ -241,8 +245,8 @@ const Home = () => {
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               At Marist Bilingual Comprehensive College, we are committed to providing quality Catholic education that develops the whole person—intellectually, spiritually, physically, and socially. Following the charism of Saint Marcellin Champagnat, we nurture young minds to become compassionate leaders who serve their communities with integrity and excellence.
             </p>
-            <Button asChild>
-              <Link to="/about">Learn More About Us</Link>
+            <Button onClick={() => handleNavigation("/about")}>
+              Learn More About Us
             </Button>
           </div>
         </div>
@@ -307,11 +311,9 @@ const Home = () => {
           </div>
 
           <div className="text-center">
-            <Button size="lg" asChild>
-              <Link to="/gallery">
-                <ImageIcon className="mr-2" size={20} />
-                View Full Gallery
-              </Link>
+            <Button size="lg" onClick={() => handleNavigation("/gallery")}>
+              <ImageIcon className="mr-2" size={20} />
+              View Full Gallery
             </Button>
           </div>
         </div>

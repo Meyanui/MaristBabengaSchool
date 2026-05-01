@@ -38,10 +38,10 @@ const Programs = () => {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-muted-foreground">
-                  <li>• Mathematics & Sciences</li>
-                  <li>• Literature & Languages</li>
-                  <li>• Social Studies & History</li>
-                  <li>• Physical Education</li>
+                  <li>• Core Sciences</li>
+                  <li>• Languages</li>
+                  <li>• Social Sciences & Humanities</li>
+                  <li>• Applied & Cross-Curricular Subjects</li>
                   <li>• Religious Education</li>
                   <li>• Preparation for national exams (GCE)</li>
                 </ul>
@@ -58,10 +58,10 @@ const Programs = () => {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-muted-foreground">
-                  <li>• Accounting & Bookkeeping</li>
-                  <li>• Business Studies</li>
-                  <li>• Economics</li>
-                  <li>• Commerce & Entrepreneurship</li>
+                  <li>• Core Commercial Subjects</li>
+                  <li>• Secretarial & Administrative Subjects</li>
+                  <li>• Transversal General Education Subjects</li>
+                  <li>• Specialized & Applied Subjects</li>
                   <li>• Computer Applications for Business</li>
                   <li>• Preparation for commercial certifications</li>
                 </ul>

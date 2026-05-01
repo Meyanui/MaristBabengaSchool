@@ -1,7 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook } from "lucide-react";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleLinkClick = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
@@ -24,29 +31,29 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="text-sm hover:text-secondary transition-colors">
+                <button onClick={() => handleLinkClick("/about")} className="text-sm hover:text-secondary transition-colors text-left">
                   About Us
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/admissions" className="text-sm hover:text-secondary transition-colors">
+                <button onClick={() => handleLinkClick("/admissions")} className="text-sm hover:text-secondary transition-colors text-left">
                   Admissions
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/programs" className="text-sm hover:text-secondary transition-colors">
+                <button onClick={() => handleLinkClick("/programs")} className="text-sm hover:text-secondary transition-colors text-left">
                   Programs
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/campus-life" className="text-sm hover:text-secondary transition-colors">
+                <button onClick={() => handleLinkClick("/campus-life")} className="text-sm hover:text-secondary transition-colors text-left">
                   Campus Life
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/contact" className="text-sm hover:text-secondary transition-colors">
+                <button onClick={() => handleLinkClick("/contact")} className="text-sm hover:text-secondary transition-colors text-left">
                   Contact
-                </Link>
+                </button>
               </li>
             </ul>
           </div>

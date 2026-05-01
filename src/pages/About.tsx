@@ -20,10 +20,10 @@ const About = () => {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-6 text-foreground">Who We Are</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-              Marist Bilingual Comprehensive College is a distinguished Catholic boarding school located in Babenga, Bonaberi, Douala, Cameroon. We are part of the worldwide network of Marist Brothers educational institutions, bringing over 200 years of educational excellence to our students.
+              Marist Bilingual Comprehensive College is a distinguished Catholic boarding school located in Babenga, a neighborhood in Bonaberi, Douala (Littoral Region, Cameroon), situated on the western side of the city across the Wouri Bridge. It lies along the Douala–Nkongsamba axis, making it accessible via the main Bonaberi road corridor. <p>We are part of the worldwide network of Marist Brothers educational institutions, bringing over 200 years of educational excellence to our students.</p>
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-              Our school offers comprehensive education from Class 6 through Upper Sixth, with both General and Commercial Education tracks. We pride ourselves on our bilingual approach, ensuring students achieve fluency in English and French, with additional Spanish language instruction.
+              Our school offers comprehensive education from Form one through Upper Sixth, with both General and Commercial Education tracks. We pride ourselves on our bilingual approach, ensuring students achieve fluency in English and French, with additional Spanish language instruction.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
               As a boarding-only institution, we provide a safe, nurturing environment where students can focus on their academic, spiritual, and personal growth under the guidance of dedicated staff who embody Marist values.
@@ -45,7 +45,7 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">
-                  To be a leading Catholic educational institution in Central Africa, forming young people of integrity, compassion, and excellence who will make a positive difference in society through the Marist spirit of simplicity, humility, and love of work.
+                  To inspire young people to live with Integrity, Compassion and Love, and committed to building a just and transformative society.
                 </p>
               </CardContent>
             </Card>
@@ -59,7 +59,7 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">
-                  To provide quality, holistic Catholic education that develops students intellectually, spiritually, physically, and socially. We nurture each student's potential while instilling strong moral values and a commitment to service, following the educational philosophy of Saint Marcellin Champagnat.
+                  We strive to provide holistic Catholic education, developing students intellectually, spiritually, physically, and socially. We nurture their potential with strong moral values and a commitment to service, inspired by the educational philosophy of Saint Marcellin Champagnat.
                 </p>
               </CardContent>
             </Card>
@@ -137,10 +137,10 @@ const About = () => {
                 <CardContent>
                   <ul className="space-y-2 text-muted-foreground">
                     <li>• Modern, well-equipped classrooms</li>
-                    <li>• Computer laboratory with latest technology</li>
+                    <li>• ICT/Computer lab</li>
                     <li>• Music room for arts education</li>
-                    <li>• Science laboratories</li>
-                    <li>• Well-stocked library</li>
+                    <li>• Science laboratory</li>
+                    <li>• Digital learning platforms</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -181,8 +181,9 @@ const About = () => {
                 <CardContent>
                   <ul className="space-y-2 text-muted-foreground">
                     <li>• 24/7 security personnel</li>
-                    <li>• Controlled campus access</li>
-                    <li>• Emergency protocols in place</li>
+                    <li>• Anti‑bullying and discipline structures</li>
+                    <li>• Health & counseling rooms</li>
+                    <li>• Child protection office</li>
                     <li>• First aid and medical care</li>
                   </ul>
                 </CardContent>
