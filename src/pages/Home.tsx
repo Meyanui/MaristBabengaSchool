@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { GraduationCap, Users, Globe, BookOpen, Calendar, Phone, Image as ImageIcon } from "lucide-react";
+import { useI18n } from "@/i18n/I18nContext";
 import heroImage from "@/assets/hero-schoo.jpg";
 import schoolStudents from "@/assets/side.jpg";
 import computerLab from "@/assets/computer-lab.jpg";
@@ -27,6 +28,7 @@ const heroImages = [
 
 const Home = () => {
   const navigate = useNavigate();
+  const { t } = useI18n();
   const videoRef = useRef<HTMLVideoElement>(null);
   const fallbackRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -107,18 +109,18 @@ const Home = () => {
 
         <div className="relative z-10 container mx-auto px-4">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
-            Welcome to <span className="text-secondary">Marist Bilingual</span>
-            <br />Comprehensive College
+            {t("homeHeroTitle1")} <span className="text-secondary">{t("homeHeroTitle2")}</span>
+            <br />{t("homeHeroTitle3")}
           </h1>
           <p className="text-xl md:text-2xl text-white/95 mb-8 max-w-3xl mx-auto drop-shadow-md">
-            Excellence in Catholic Education • Building Future Leaders • Boarding School
+            {t("homeHeroSubtitle")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" className="shadow-lg" onClick={() => handleNavigation("/admissions")}>
-              Apply Now for 2026/2027
+              {t("homeApplyNow")}
             </Button>
             <Button size="lg" variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary backdrop-blur-sm shadow-lg" onClick={() => handleNavigation("/contact")}>
-              Contact Admissions
+              {t("homeContactAdmissions")}
             </Button>
           </div>
         </div>
@@ -132,9 +134,9 @@ const Home = () => {
             <div className="flex-1 overflow-hidden">
               <div className="animate-marquee whitespace-nowrap">
                 <p className="font-black text-xl inline-block text-secondary-foreground">
-                  🎯 Special Interview Date: June 6th, 2026 • 8:00 AM - 11:00 AM 🎯 &nbsp;&nbsp;&nbsp;&nbsp;
-                  🎯 Special Interview Date: June 6th, 2026 • 8:00 AM - 11:00 AM 🎯 &nbsp;&nbsp;&nbsp;&nbsp;
-                  🎯 Special Interview Date: June 6th, 2026 • 8:00 AM - 11:00 AM 🎯 &nbsp;&nbsp;&nbsp;&nbsp;
+                  {t("homeSpecialInterviewDate")} &nbsp;&nbsp;&nbsp;&nbsp;
+                  {t("homeSpecialInterviewDate")} &nbsp;&nbsp;&nbsp;&nbsp;
+                  {t("homeSpecialInterviewDate")}
                 </p>
               </div>
             </div>
@@ -149,16 +151,16 @@ const Home = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
-            Why Choose Marist College?
+            {t("homeWhyChoose")}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card className="border-2 hover:border-accent transition-colors">
               <CardHeader>
                 <GraduationCap className="w-12 h-12 mb-4 text-accent" />
-                <CardTitle>Academic Excellence</CardTitle>
+                <CardTitle>{t("homeCardAcademicExcellenceTitle")}</CardTitle>
                 <CardDescription>
-                  General and Commercial Education with emphasis on quality learning
+                  {t("homeCardAcademicExcellenceDescription")}
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -166,9 +168,9 @@ const Home = () => {
             <Card className="border-2 hover:border-accent transition-colors">
               <CardHeader>
                 <Globe className="w-12 h-12 mb-4 text-accent" />
-                <CardTitle>Bilingual Education</CardTitle>
+                <CardTitle>{t("homeCardBilingualEducationTitle")}</CardTitle>
                 <CardDescription>
-                  Fluency in English & French with Spanish language mastery
+                  {t("homeCardBilingualEducationDescription")}
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -176,9 +178,9 @@ const Home = () => {
             <Card className="border-2 hover:border-accent transition-colors">
               <CardHeader>
                 <Users className="w-12 h-12 mb-4 text-accent" />
-                <CardTitle>Boarding Facility</CardTitle>
+                <CardTitle>{t("homeCardBoardingFacilityTitle")}</CardTitle>
                 <CardDescription>
-                  Safe, secure, and nurturing boarding environment with complete care
+                  {t("homeCardBoardingFacilityDescription")}
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -186,9 +188,9 @@ const Home = () => {
             <Card className="border-2 hover:border-accent transition-colors">
               <CardHeader>
                 <BookOpen className="w-12 h-12 mb-4 text-accent" />
-                <CardTitle>Marist Values</CardTitle>
+                <CardTitle>{t("homeCardMaristValuesTitle")}</CardTitle>
                 <CardDescription>
-                  Catholic education rooted in Marist Brothers tradition since 1817
+                  {t("homeCardMaristValuesDescription")}
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -196,9 +198,9 @@ const Home = () => {
             <Card className="border-2 hover:border-accent transition-colors">
               <CardHeader>
                 <GraduationCap className="w-12 h-12 mb-4 text-accent" />
-                <CardTitle>Modern Facilities</CardTitle>
+                <CardTitle>{t("homeCardModernFacilitiesTitle")}</CardTitle>
                 <CardDescription>
-                  Computer laboratory, Music room, and comprehensive boarding facilities
+                  {t("homeCardModernFacilitiesDescription")}
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -206,9 +208,9 @@ const Home = () => {
             <Card className="border-2 hover:border-accent transition-colors">
               <CardHeader>
                 <Globe className="w-12 h-12 mb-4 text-accent" />
-                <CardTitle>Global Network</CardTitle>
+                <CardTitle>{t("homeCardGlobalNetworkTitle")}</CardTitle>
                 <CardDescription>
-                  Part of Marist Brothers presence in 79 countries worldwide
+                  {t("homeCardGlobalNetworkDescription")}
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -220,19 +222,25 @@ const Home = () => {
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Join Our Community?
+            {t("homeCTATitle")}
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-95">
-            Admissions open for Form ONE Only. Apply now to secure your child's place at MARIST for the 2026/2027 academic year.
+            {t("homeCTASubtitle")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" onClick={() => handleNavigation("/admissions")}>
-              View Requirements
+            <Button size="lg" variant="secondary" onClick={() => handleNavigation("/admissions")}> 
+              {t("homeViewRequirements")}
             </Button>
-            <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" onClick={() => handleNavigation("/contact")}>
+            <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" onClick={() => handleNavigation("/contact")}> 
               <Phone className="mr-2" size={20} />
-              Call: (237) 677 085 479
+              {t("homeCallAdmissions")}
             </Button>
+            <a
+              href="/application-form"
+              className="inline-flex items-center justify-center rounded-lg border border-primary-foreground bg-transparent px-6 py-3 text-sm font-bold text-primary-foreground transition hover:bg-primary-foreground hover:text-primary"
+            >
+              {t("homeViewApplicationForm")}
+            </a>
           </div>
         </div>
       </section>
@@ -241,12 +249,12 @@ const Home = () => {
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">Our Mission</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">{t("homeMissionTitle")}</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              At Marist Bilingual Comprehensive College, we are committed to providing quality Catholic education that develops the whole person—intellectually, spiritually, physically, and socially. Following the charism of Saint Marcellin Champagnat, we nurture young minds to become compassionate leaders who serve their communities with integrity and excellence.
+              {t("homeMissionDescription")}
             </p>
-            <Button onClick={() => handleNavigation("/about")}>
-              Learn More About Us
+            <Button onClick={() => handleNavigation("/about")}> 
+              {t("homeLearnMoreAboutUs")}
             </Button>
           </div>
         </div>
@@ -257,10 +265,10 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              Campus <span className="text-secondary">Life</span>
+              {t("homeGalleryTitle")} <span className="text-secondary">{t("homeGalleryHighlight")}</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Experience the vibrant community and facilities at Marist College
+              {t("homeGalleryLifeDescription")}
             </p>
           </div>
           
@@ -268,44 +276,44 @@ const Home = () => {
             <div className="relative overflow-hidden rounded-lg aspect-square group">
               <img 
                 src={schoolStudents} 
-                alt="Our Students"
+                alt={t("homeOurStudents")}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-primary/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <p className="text-primary-foreground font-semibold text-lg">Our Students</p>
+                <p className="text-primary-foreground font-semibold text-lg">{t("homeOurStudents")}</p>
               </div>
             </div>
             
             <div className="relative overflow-hidden rounded-lg aspect-square group">
               <img 
                 src={computerLab} 
-                alt="Computer Lab"
+                alt={t("homeComputerLab")}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-primary/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <p className="text-primary-foreground font-semibold text-lg">Computer Lab</p>
+                <p className="text-primary-foreground font-semibold text-lg">{t("homeComputerLab")}</p>
               </div>
             </div>
             
             <div className="relative overflow-hidden rounded-lg aspect-square group">
               <img 
                 src={boardingDorm} 
-                alt="Boarding Facilities"
+                alt={t("homeBoardingFacilities")}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-primary/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <p className="text-primary-foreground font-semibold text-lg">Boarding Facilities</p>
+                <p className="text-primary-foreground font-semibold text-lg">{t("homeBoardingFacilities")}</p>
               </div>
             </div>
             
             <div className="relative overflow-hidden rounded-lg aspect-square group">
               <img 
                 src={chapel} 
-                alt="School Chapel"
+                alt={t("homeSchoolChapel")}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-primary/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <p className="text-primary-foreground font-semibold text-lg">School Chapel</p>
+                <p className="text-primary-foreground font-semibold text-lg">{t("homeSchoolChapel")}</p>
               </div>
             </div>
           </div>
@@ -313,7 +321,7 @@ const Home = () => {
           <div className="text-center">
             <Button size="lg" onClick={() => handleNavigation("/gallery")}>
               <ImageIcon className="mr-2" size={20} />
-              View Full Gallery
+              {t("homeGalleryViewFullGallery")}
             </Button>
           </div>
         </div>

@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Admissions from "./pages/Admissions";
+import ApplicationForm from "./pages/ApplicationForm";
 import Programs from "./pages/Programs";
 import CampusLife from "./pages/CampusLife";
 import Gallery from "./pages/Gallery";
@@ -28,6 +29,7 @@ const App = () => (
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/admissions" element={<Admissions />} />
+              <Route path="/application-form" element={<ApplicationForm />} />
               <Route path="/programs" element={<Programs />} />
               <Route path="/campus-life" element={<CampusLife />} />
               <Route path="/gallery" element={<Gallery />} />

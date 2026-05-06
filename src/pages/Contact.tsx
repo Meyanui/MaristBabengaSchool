@@ -7,6 +7,7 @@ import { Phone, Mail, MapPin, Facebook, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { z } from "zod";
+import { useI18n } from "@/i18n/I18nContext";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -18,6 +19,7 @@ const contactSchema = z.object({
 
 const Contact = () => {
   const { toast } = useToast();
+  const { t } = useI18n();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -39,8 +41,8 @@ const Contact = () => {
       // Simulate form submission
       setTimeout(() => {
         toast({
-          title: "Message Sent!",
-          description: "Thank you for contacting us. Kindly Call +237677085479 if no Immediate Response.",
+          title: t("messageSentTitle"),
+          description: t("messageSentDescription"),
         });
         setIsSubmitting(false);
         (e.target as HTMLFormElement).reset();
@@ -62,9 +64,9 @@ const Contact = () => {
       {/* Hero Header */}
       <section className="bg-gradient-to-r from-primary to-accent text-primary-foreground py-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">{t("contactTitle")}</h1>
           <p className="text-xl opacity-95 max-w-2xl mx-auto">
-            Get in touch with our admissions office. We're here to answer your questions.
+            {t("contactIntro")}
           </p>
         </div>
       </section>
@@ -79,7 +81,7 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Phone className="text-accent" />
-                    Phone Numbers
+                    {t("phoneNumbers")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
@@ -99,7 +101,7 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Mail className="text-accent" />
-                    Email Address
+                    {t("emailAddress")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -116,7 +118,7 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <MapPin className="text-accent" />
-                    Location
+                    {t("location")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -131,21 +133,21 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Clock className="text-accent" />
-                    Admissions Office Hours
+                    {t("admissionsOfficeHours")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-lg mb-2">
-                    <strong>June - August 2026</strong>
+                    <strong>{t("juneAugust")}</strong>
                   </p>
                   <p className="text-muted-foreground">
-                    Wednesdays & Saturdays<br />
-                    9:00 AM - 12:00 Noon
+                    {t("officeDays")}<br />
+                    {t("officeTime")}
                   </p>
                   <p className="mt-4 font-semibold text-secondary">
-                    Special Interview Date:<br />
-                    Saturday, June 6, 2026<br />
-                    8:00 AM - 11:00 AM
+                    {t("specialInterviewDate")}<br />
+                    {t("interviewDetails")}<br />
+                    {t("interviewTime")}
                   </p>
                 </CardContent>
               </Card>
@@ -154,7 +156,7 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Facebook className="text-accent" />
-                    Follow Us
+                    {t("followUs")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -175,15 +177,15 @@ const Contact = () => {
             <div>
               <Card>
                 <CardHeader>
-                  <CardTitle>Send Us a Message</CardTitle>
+                  <CardTitle>{t("sendUsMessage")}</CardTitle>
                   <CardDescription>
-                    Fill out the form below and we'll get back to you as soon as possible
+                    {t("sendUsMessageDescription")}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Full Name *</Label>
+                      <Label htmlFor="name">{t("fullName")}</Label>
                       <Input 
                         id="name" 
                         name="name"
@@ -194,7 +196,7 @@ const Contact = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email Address *</Label>
+                      <Label htmlFor="email">{t("emailAddressPlaceholder")}</Label>
                       <Input 
                         id="email" 
                         name="email"
@@ -206,7 +208,7 @@ const Contact = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
+                      <Label htmlFor="phone">{t("phoneNumber")}</Label>
                       <Input 
                         id="phone" 
                         name="phone"
@@ -217,7 +219,7 @@ const Contact = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="subject">Subject *</Label>
+                      <Label htmlFor="subject">{t("subject")}</Label>
                       <Input 
                         id="subject" 
                         name="subject"
@@ -228,7 +230,7 @@ const Contact = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="message">Message *</Label>
+                      <Label htmlFor="message">{t("message")}</Label>
                       <Textarea 
                         id="message" 
                         name="message"
@@ -245,7 +247,7 @@ const Contact = () => {
                       size="lg"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? "Sending..." : "Send Message"}
+                      {isSubmitting ? t("sending") : t("sendMessage")}
                     </Button>
                   </form>
                 </CardContent>
@@ -259,17 +261,17 @@ const Contact = () => {
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6 text-foreground">Visit Our Campus</h2>
+            <h2 className="text-3xl font-bold mb-6 text-foreground">{t("visitOurCampus")}</h2>
             <Card>
               <CardContent className="pt-6">
                 <div className="bg-background rounded-lg p-12 text-center">
                   <MapPin className="w-16 h-16 mx-auto mb-4 text-accent" />
-                  <h3 className="text-xl font-semibold mb-2">Marist Bilingual Comprehensive College</h3>
+                  <h3 className="text-xl font-semibold mb-2">{t("maristCollege")}</h3>
                   <p className="text-muted-foreground mb-4">
                     Babenga – Bonaberi, Douala, Cameroon
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    Visit us during admissions hours or schedule an appointment to tour our facilities
+                    {t("visitCampusText")}
                   </p>
                 </div>
               </CardContent>

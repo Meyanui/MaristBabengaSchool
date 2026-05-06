@@ -148,16 +148,20 @@ const CampusLife = () => {
               <CardContent className="pt-6">
                 <div className="space-y-4">
                   <div className="flex gap-4 pb-3 border-b">
-                    <div className="font-semibold w-32 flex-shrink-0">6:00 AM</div>
+                    <div className="font-semibold w-32 flex-shrink-0">5:30 AM</div>
                     <div className="text-muted-foreground">Wake up & morning preparations</div>
                   </div>
                   <div className="flex gap-4 pb-3 border-b">
                     <div className="font-semibold w-32 flex-shrink-0">6:30 AM</div>
-                    <div className="text-muted-foreground">Morning prayer & Mass (optional daily)</div>
+                    <div className="text-muted-foreground">Morning prayer & Mass</div>
                   </div>
                   <div className="flex gap-4 pb-3 border-b">
                     <div className="font-semibold w-32 flex-shrink-0">7:00 AM</div>
                     <div className="text-muted-foreground">Breakfast</div>
+                  </div>
+                  <div className="flex gap-4 pb-3 border-b">
+                    <div className="font-semibold w-32 flex-shrink-0">7:30 AM</div>
+                    <div className="text-muted-foreground">Assembly</div>
                   </div>
                   <div className="flex gap-4 pb-3 border-b">
                     <div className="font-semibold w-32 flex-shrink-0">8:00 AM</div>
@@ -168,12 +172,16 @@ const CampusLife = () => {
                     <div className="text-muted-foreground">Morning break</div>
                   </div>
                   <div className="flex gap-4 pb-3 border-b">
-                    <div className="font-semibold w-32 flex-shrink-0">12:30 PM</div>
+                    <div className="font-semibold w-32 flex-shrink-0">1:50 PM</div>
                     <div className="text-muted-foreground">Lunch</div>
                   </div>
                   <div className="flex gap-4 pb-3 border-b">
-                    <div className="font-semibold w-32 flex-shrink-0">2:00 PM</div>
-                    <div className="text-muted-foreground">End of classes</div>
+                    <div className="font-semibold w-32 flex-shrink-0">2:20 PM</div>
+                    <div className="text-muted-foreground">Siesta</div>
+                  </div>
+                  <div className="flex gap-4 pb-3 border-b">
+                    <div className="font-semibold w-32 flex-shrink-0">3:15 PM</div>
+                    <div className="text-muted-foreground">preps</div>
                   </div>
                   <div className="flex gap-4 pb-3 border-b">
                     <div className="font-semibold w-32 flex-shrink-0">4:30 PM</div>

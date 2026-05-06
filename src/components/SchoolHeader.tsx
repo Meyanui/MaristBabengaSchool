@@ -1,6 +1,8 @@
 import logo from "@/assets/logo.png";
+import { useI18n } from "@/i18n/I18nContext";
 
 const SchoolHeader = () => {
+  const { t } = useI18n();
   return (
     <section className="bg-gradient-to-r from-primary via-primary to-navy py-6 border-b-4 border-secondary">
       <div className="container mx-auto px-4">
@@ -17,7 +19,7 @@ const SchoolHeader = () => {
                 <span className="text-secondary">MARIST</span>
               </h1>
               <p className="text-primary-foreground/90 text-sm md:text-base font-medium mt-2">
-                Bilingual Comprehensive College
+                {t("schoolHeaderSubtitle")}
               </p>
             </div>
           </div>
@@ -25,10 +27,10 @@ const SchoolHeader = () => {
           {/* School Description */}
           <div className="text-center md:text-right max-w-4xl">
             <p className="text-primary-foreground/95 text-sm md:text-base font-medium leading-relaxed">
-              Excellence in Catholic Education  
+              {t("schoolHeaderDescription")}
             </p>
             <p className="text-primary-foreground/80 text-xs md:text-sm mt-2">
-              Motto: LEARN - LOVE - SERVE HUMANITY
+              {t("schoolHeaderMotto")}
             </p>
           </div>
         </div>

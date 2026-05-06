@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { translations, Language, TranslationKey } from "./translations";
 
 interface I18nContextType {
@@ -9,8 +9,28 @@ interface I18nContextType {
 
 const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
+const getDefaultLanguage = (): Language => {
+  if (typeof window !== "undefined") {
+    const storedLanguage = window.localStorage.getItem("language");
+    if (storedLanguage && storedLanguage in translations) {
+      return storedLanguage as Language;
+    }
+    const browserLanguage = navigator.language.slice(0, 2) as Language;
+    if (browserLanguage in translations) {
+      return browserLanguage;
+    }
+  }
+  return "en";
+};
+
 export const I18nProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>(getDefaultLanguage());
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("language", language);
+    }
+  }, [language]);
 
   const t = (key: TranslationKey): string => {
     return translations[language][key] || key;
