@@ -1,1 +1,6 @@
+# Redirect all routes to index.html for SPA routing
 /* /index.html 200
+
+# Handle assets and static files
+/assets/* /assets/:splat 200
+/videos/* /videos/:splat 200

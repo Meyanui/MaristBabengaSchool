@@ -189,7 +189,7 @@ const Admissions = () => {
                       </li>
                       <li className="flex items-center gap-2 animate-fade-in-delay-2">
                         <CheckCircle2 className="text-accent animate-bounce" size={18} />
-                        <span className="font-bold">Boarding accommodation</span>
+                        <span className="font-bold">{t("admissionsBoardingAccommodation")}</span>
                       </li>
                       <li className="flex items-center gap-2 animate-fade-in-delay-3">
                         <CheckCircle2 className="text-accent animate-bounce" size={18} />

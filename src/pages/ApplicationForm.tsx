@@ -41,28 +41,63 @@ interface FormData {
 const ApplicationForm = () => {
   const navigate = useNavigate();
   const { t } = useI18n();
-  const [formData, setFormData] = useState<FormData>({
-    fullName: '',
-    dateOfBirth: '',
-    email: '',
-    phone: '',
-    homeAddress: '',
-    currentSchool: '',
-    currentGrade: '',
-    mathsScore: '',
-    englishScore: '',
-    languagesSpoken: '',
-    extracurricularActivities: '',
-    sportsClubs: '',
-    communityService: '',
-    personalStatement: '',
-    parentName: '',
-    parentOccupation: '',
-    parentPhone: '',
-    parentEmail: '',
-    emergencyContact: '',
-    emergencyPhone: '',
-  });
+
+  const getSavedFormData = (): FormData => {
+    const saved = sessionStorage.getItem("applicationFormData");
+    if (!saved) {
+      return {
+        fullName: '',
+        dateOfBirth: '',
+        email: '',
+        phone: '',
+        homeAddress: '',
+        currentSchool: '',
+        currentGrade: '',
+        mathsScore: '',
+        englishScore: '',
+        languagesSpoken: '',
+        extracurricularActivities: '',
+        sportsClubs: '',
+        communityService: '',
+        personalStatement: '',
+        parentName: '',
+        parentOccupation: '',
+        parentPhone: '',
+        parentEmail: '',
+        emergencyContact: '',
+        emergencyPhone: '',
+      };
+    }
+
+    try {
+      return JSON.parse(saved) as FormData;
+    } catch {
+      return {
+        fullName: '',
+        dateOfBirth: '',
+        email: '',
+        phone: '',
+        homeAddress: '',
+        currentSchool: '',
+        currentGrade: '',
+        mathsScore: '',
+        englishScore: '',
+        languagesSpoken: '',
+        extracurricularActivities: '',
+        sportsClubs: '',
+        communityService: '',
+        personalStatement: '',
+        parentName: '',
+        parentOccupation: '',
+        parentPhone: '',
+        parentEmail: '',
+        emergencyContact: '',
+        emergencyPhone: '',
+      };
+    }
+  };
+
+  const [formData, setFormData] = useState<FormData>(getSavedFormData);
 
   const handleNavigation = (path: string) => {
     navigate(path);
@@ -77,66 +112,97 @@ const ApplicationForm = () => {
     }));
   };
 
-  const handleDownload = () => {
-    const formContent = `
-MARIST BILINGUAL COMPREHENSIVE COLLEGE
-APPLICATION FORM FOR ADMISSION - FORM ONE
+  const handlePreview = () => {
+    sessionStorage.setItem("applicationFormData", JSON.stringify(formData));
+    navigate("/application-form/review");
+  };
 
-====================================
-SECTION 1: PERSONAL INFORMATION
-====================================
-Full Name: ${formData.fullName}
-Date of Birth: ${formData.dateOfBirth}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Home Address: ${formData.homeAddress}
+  const handleDownload = async () => {
+    const { jsPDF } = await import("jspdf");
+    const doc = new jsPDF({ unit: "pt", format: "a4" });
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const margin = 40;
+    const lineHeight = 18;
+    let y = 60;
 
-====================================
-SECTION 2: ACADEMIC BACKGROUND
-====================================
-Current School: ${formData.currentSchool}
-Current Grade/Form: ${formData.currentGrade}
-Mathematics Score: ${formData.mathsScore}
-English Score: ${formData.englishScore}
-Languages Spoken: ${formData.languagesSpoken}
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text("MARIST BILINGUAL COMPREHENSIVE COLLEGE", pageWidth / 2, y, { align: "center" });
+    y += 24;
 
-====================================
-SECTION 3: ADDITIONAL INFORMATION
-====================================
-Extracurricular Activities:
-${formData.extracurricularActivities}
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "normal");
+    doc.text("Babenga - Bonaberi, Douala, Cameroon", pageWidth / 2, y, { align: "center" });
+    y += 14;
+    doc.text("Tel: +237 677 085 479 | Email: admissions@maristbabenga.cm", pageWidth / 2, y, { align: "center" });
+    y += 8;
+    doc.setLineWidth(1);
+    doc.line(margin, y, pageWidth - margin, y);
+    y += 28;
 
-Sports & Clubs:
-${formData.sportsClubs}
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "bold");
+    doc.text("APPLICATION FORM FOR ADMISSION - FORM ONE", margin, y);
+    y += 22;
 
-Community Service Experience:
-${formData.communityService}
+    const drawSection = (title: string, fields: Array<[string, string]>) => {
+      doc.setFontSize(12);
+      doc.setFont("helvetica", "bold");
+      doc.text(title, margin, y);
+      y += 18;
 
-Personal Statement:
-${formData.personalStatement}
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
 
-====================================
-SECTION 4: PARENT/GUARDIAN INFORMATION
-====================================
-Parent/Guardian Name: ${formData.parentName}
-Occupation: ${formData.parentOccupation}
-Phone: ${formData.parentPhone}
-Email: ${formData.parentEmail}
-Emergency Contact: ${formData.emergencyContact}
-Emergency Phone: ${formData.emergencyPhone}
+      fields.forEach(([label, value]) => {
+        const content = `${label}: ${value || "____________________________"}`;
+        const lines = doc.splitTextToSize(content, pageWidth - margin * 2);
+        if (y + lines.length * lineHeight > doc.internal.pageSize.getHeight() - margin) {
+          doc.addPage();
+          y = margin;
+        }
+        doc.text(lines, margin, y);
+        y += lines.length * lineHeight;
+      });
+      y += 12;
+    };
 
-====================================
-Application Date: ${new Date().toLocaleDateString()}
-====================================
-    `.trim();
+    drawSection("SECTION 1: PERSONAL INFORMATION", [
+      ["Full Name", formData.fullName],
+      ["Date of Birth", formData.dateOfBirth],
+      ["Email Address", formData.email],
+      ["Phone Number", formData.phone],
+      ["Home Address", formData.homeAddress],
+    ]);
 
-    const element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(formContent));
-    element.setAttribute('download', `Application_Form_${formData.fullName.replace(/\s+/g, '_')}_${Date.now()}.txt`);
-    element.style.display = 'none';
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+    drawSection("SECTION 2: ACADEMIC BACKGROUND", [
+      ["Current School", formData.currentSchool],
+      ["Current Grade/Form", formData.currentGrade],
+      ["Mathematics Score", formData.mathsScore],
+      ["English Score", formData.englishScore],
+      ["Languages Spoken", formData.languagesSpoken],
+    ]);
+
+    drawSection("SECTION 3: ADDITIONAL INFORMATION", [
+      ["Extracurricular Activities", formData.extracurricularActivities],
+      ["Sports & Clubs", formData.sportsClubs],
+      ["Community Service", formData.communityService],
+      ["Personal Statement", formData.personalStatement],
+    ]);
+
+    drawSection("SECTION 4: PARENT/GUARDIAN INFORMATION", [
+      ["Parent/Guardian Name", formData.parentName],
+      ["Occupation", formData.parentOccupation],
+      ["Phone", formData.parentPhone],
+      ["Email", formData.parentEmail],
+      ["Emergency Contact", formData.emergencyContact],
+      ["Emergency Phone", formData.emergencyPhone],
+    ]);
+
+    doc.setFontSize(10);
+    doc.text(`Application Date: ${new Date().toLocaleDateString()}`, margin, y);
+    const fileName = `Marist_Application_${formData.fullName ? formData.fullName.replace(/\s+/g, "_") : "Form"}_${Date.now()}.pdf`;
+    doc.save(fileName);
   };
 
   return (
@@ -495,16 +561,16 @@ Application Date: ${new Date().toLocaleDateString()}
 
             {/* Download & Submit CTA */}
             <div className="bg-primary text-primary-foreground rounded-lg p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">Save Your Application</h3>
-              <p className="mb-6 opacity-95">Download your completed application and bring it to your interview session along with all required documents.</p>
+              <h3 className="text-2xl font-bold mb-4">Review before Download</h3>
+              <p className="mb-6 opacity-95">Review all details in the preview before generating your downloadable PDF application.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
                   className="bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                  onClick={handleDownload}
+                  onClick={handlePreview}
                 >
                   <Download className="mr-2" size={20} />
-                  Download My Application
+                  Review Details
                 </Button>
                 <Button
                   size="lg"
